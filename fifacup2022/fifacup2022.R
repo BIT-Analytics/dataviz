@@ -49,7 +49,7 @@ df <- grouping %>%
 ## Converts and adequates the value of the players to numeric values
 df <- df %>% 
   dplyr::mutate(unit = str_detect(value_total, "m"),
-                unit = ifelse(unit, 1E+09, 1E+06),
+                unit = ifelse(unit, 1E+06, 1E+09),
                 value_total = stringr::str_remove_all(value_total,"(€|[:alpha:])"),
                 value_total = as.numeric(value_total),
                 value_total = unit*value_total)
